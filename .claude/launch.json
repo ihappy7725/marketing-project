@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "sodam",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8777",
+        "-d",
+        "C:\\Users\\user\\Desktop\\10월 수업 & 프로젝트\\marketing-project\\02-홈페이지"
+      ],
+      "port": 8777
+    }
+  ]
+}

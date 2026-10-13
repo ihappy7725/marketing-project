@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>소담 — 혼자여도, 소담하게</title>
+<meta name="description" content="혼자 사는 사람을 위한 끼니 트래커. 먹은 걸 15초로 담고, 냉장고에 남은 재료로 다음 끼니를 차려요. (수업 과제용 가상 서비스)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="css/style.css?v=15">
+</head>
+<body>
+<a class="skip" href="#main">본문으로 바로가기</a>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="logo" href="#main" aria-label="소담 홈">
+      <svg class="logo__mark" viewBox="0 0 44 44" aria-hidden="true">
+        <circle cx="22" cy="22" r="21" fill="var(--lime-100)"/>
+        <g fill="none" stroke="var(--ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.5 12 L10 22"/>
+          <path d="M14.5 12 L19 22"/>
+          <path d="M33.5 12 H25.5 V22 H33.5"/>
+        </g>
+        <path d="M11 27 Q22 36 33 27" fill="none" stroke="var(--lime-600)" stroke-width="3.2" stroke-linecap="round"/>
+      </svg>
+      <span class="logo__type">소담</span>
+    </a>
+
+    <button class="nav__burger" type="button" aria-expanded="false" aria-controls="navmenu">
+      <span class="sr">메뉴 열기</span>
+      <span class="nav__burger-bar" aria-hidden="true"></span>
+    </button>
+
+    <nav id="navmenu" class="nav__menu" aria-label="주요 메뉴">
+      <a href="#services">서비스</a>
+      <a href="#features">핵심 기능</a>
+      <a href="#why">왜 소담인가</a>
+      <a href="#demo">만져보기</a>
+      <a href="#plans">플랜</a>
+      <a class="btn btn--primary btn--sm" href="dashboard.html">시작하기</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ══════════ 1. 히어로 ══════════ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero__card">
+        <img class="hero__img" src="img/hero.jpg" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
+        <span class="hero__scrim" aria-hidden="true"></span>
+        <div class="hero__text">
+          <p class="hero__eyebrow">혼자 사는 사람을 위한 끼니 트래커</p>
+          <h1 class="hero__title">혼자여도, <em>소담하게.</em></h1>
+          <p class="hero__sub">먹은 걸 <strong>15초</strong>로 담으면, 냉장고에 <strong>남은 재료</strong>로 다음 끼니를 차려드려요.</p>
+        </div>
+      </div>
+
+      <div class="hero__below">
+        <div class="hero__cta">
+          <a class="btn btn--primary btn--lg" href="dashboard.html">시작하기 <span aria-hidden="true">→</span></a>
+          <a class="btn btn--ghost btn--lg" href="#services">서비스 보기</a>
+        </div>
+        <ul class="badges">
+          <li><span class="badges__ico" style="background:var(--c-sage)" aria-hidden="true">🥬</span>남은 재료부터</li>
+          <li><span class="badges__ico" style="background:var(--c-butter)" aria-hidden="true">⏱</span>하루 15초</li>
+          <li><span class="badges__ico" style="background:var(--c-peach)" aria-hidden="true">💬</span>평가 대신 응원</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 2. 선언문 ══════════ -->
+  <section class="manifesto" id="manifesto">
+    <span class="orb orb--1" aria-hidden="true">🥬</span>
+    <span class="orb orb--2" aria-hidden="true">✳</span>
+    <span class="orb orb--3" aria-hidden="true">🍳</span>
+    <span class="orb orb--4" aria-hidden="true">🥕</span>
+    <span class="orb orb--5" aria-hidden="true">✦</span>
+    <span class="orb orb--6" aria-hidden="true">🍚</span>
+    <span class="orb orb--7" aria-hidden="true">❋</span>
+    <span class="orb orb--8" aria-hidden="true">🥄</span>
+    <div class="wrap">
+      <p class="manifesto__kicker reveal">소담이 하는 일</p>
+      <h2 class="manifesto__text" id="manifestoText">
+        <span class="mline">
+          <span class="w">소담은</span>
+          <span class="emo" style="background:var(--c-sage)">🥬</span>
+          <span class="w">혼자</span><span class="w">사는</span><span class="w">사람의</span>
+        </span>
+        <span class="mline">
+          <span class="emo" style="background:var(--c-butter)">🥄</span>
+          <span class="w">끼니를</span><span class="w">15초로</span><span class="w">기록하고,</span>
+        </span>
+        <span class="mline">
+          <span class="w">남은</span><span class="w">재료로</span>
+          <span class="emo" style="background:var(--c-peach)">🍳</span>
+          <span class="w">다음</span><span class="w">끼니를</span><span class="w">차립니다.</span>
+        </span>
+      </h2>
+      <p class="manifesto__sub reveal" data-d="3">
+        먹은 걸 적기만 하는 앱이 아니에요.<br>
+        <strong>적은 걸 가지고 오늘 저녁까지 해결하는 앱</strong>이에요.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════ 3. 서비스 ══════════ -->
+  <section id="services" class="services">
+    <div class="services__sticky">
+      <div class="wrap services__inner">
+        <div class="services__head">
+          <span class="services__leaf" aria-hidden="true">🌱</span>
+          <h2>소담의<br>서비스를<br>만나보세요!</h2>
+          <p class="services__hint">스크롤하면 기능이 흘러갑니다</p>
+        </div>
+
+        <div class="track__view">
+        <ol class="track" id="svcTrack">
+          <li class="svc" style="--tint:var(--c-peach)">
+            <span class="svc__tag">핵심 기능</span>
+            <h3>냉장고 구조대</h3>
+            <p>냉장고에 남은 재료를 고르면 만들 수 있는 메뉴가 떠요. 부족한 것만 1인분으로 담기고요.</p>
+            <div class="svc__img"><img src="img/svc-1.webp" width="720" height="720" loading="lazy" decoding="async" alt="도마 위에 남은 애호박·대파·두부와, 그 재료로 끓여낸 찌개 한 그릇"></div>
+          </li>
+          <li class="svc" style="--tint:var(--c-sage)">
+            <span class="svc__tag">기록</span>
+            <h3>끼니 담기</h3>
+            <p>집밥·배달·외식·편의점·건너뜀 중 한 번 탭. 하루 15초, 칼로리는 묻지 않아요.</p>
+            <div class="svc__img"><img src="img/svc-2.webp" width="720" height="720" loading="lazy" decoding="async" alt="원목 트레이에 차려진 한 끼 옆으로 손이 휴대폰을 집는 모습"></div>
+          </li>
+          <li class="svc" style="--tint:var(--c-sky)">
+            <span class="svc__tag">진단</span>
+            <h3>끼니 돌아보기</h3>
+            <p>내 끼니의 생김새와 못 쓰고 버린 재료를 보여줘요. 남이 아니라 과거의 나와만 비교해요.</p>
+            <div class="svc__img"><img src="img/svc-3.webp" width="720" height="720" loading="lazy" decoding="async" alt="네 개의 트레이에 각각 차려진 서로 다른 한 끼"></div>
+          </li>
+          <li class="svc" style="--tint:var(--c-butter)">
+            <span class="svc__tag">마음</span>
+            <h3>쉬어가는 날</h3>
+            <p>편의점으로 때운 날에도 혼내지 않아요. 다음 끼니만 가볍게 제안해요.</p>
+            <div class="svc__img"><img src="img/svc-4.webp" width="720" height="720" loading="lazy" decoding="async" alt="냄비째 올린 라면과 밥, 반찬 세 가지가 놓인 늦은 밤 한 상"></div>
+          </li>
+          <li class="svc" style="--tint:var(--c-lilac)">
+            <span class="svc__tag">커뮤니티</span>
+            <h3>구조대 피드</h3>
+            <p>"대파 반 단 남았는데 뭐 해먹죠?" 같은 방에 사는 사람들이 답해줘요.</p>
+            <div class="svc__img"><img src="img/svc-5.webp" width="720" height="720" loading="lazy" decoding="async" alt="남은 재료 한 그릇 옆에 엎어둔 휴대폰과 쉬고 있는 두 손"></div>
+          </li>
+          <li class="svc" style="--tint:var(--c-mint)">
+            <span class="svc__tag">배송</span>
+            <h3>1인분 소분 배송</h3>
+            <p>대파 한 단이 아니라 ⅓단. 남지 않는 분량으로 손질해서 보내드려요.</p>
+            <div class="svc__img"><img src="img/svc-6.webp" width="720" height="720" loading="lazy" decoding="async" alt="파스텔 뚜껑이 덮인 유리 용기 다섯 개에 1인분씩 손질해 담은 재료들"></div>
+          </li>
+        </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 4. 핵심 기능 ══════════ -->
+  <section id="features" class="sec">
+    <div class="wrap">
+      <p class="eyebrow reveal">핵심 기능</p>
+      <h2 class="sec__title reveal">기록하는 앱이 아니라, 기록을 써먹는 앱</h2>
+      <p class="sec__lead reveal" data-d="1">세 기능은 목록이 아니라 하나의 순환이에요. 연결 고리는 <strong>"놓친 재료"</strong>입니다.</p>
+
+      <ol class="cards">
+        <li class="card reveal" data-d="1" style="--tint:var(--c-sage)">
+          <div class="card__art">
+            <img src="img/feature-1.webp" width="1408" height="768" loading="lazy" decoding="async"
+                 alt="한 끼가 차려진 트레이 옆에서 휴대폰을 집는 손">
+          </div>
+          <span class="card__no">① 담기</span>
+          <h3 class="card__title">끼니 담기</h3>
+          <p class="card__desc">먹은 것을 아이콘 한 번으로. <strong>하루 총 15초</strong>, 칼로리 입력은 요구하지 않아요.</p>
+          <ul class="card__list">
+            <li>집밥·배달·외식·편의점·건너뜀 중 1탭</li>
+            <li>장바구니 결제 시 냉장고 자동 등록</li>
+            <li>수면·하루 배분은 가볍게 곁들이기</li>
+          </ul>
+        </li>
+        <li class="card reveal" data-d="2" style="--tint:var(--c-sky)">
+          <div class="card__art">
+            <img src="img/feature-2.webp" width="1408" height="768" loading="lazy" decoding="async"
+                 alt="네 개의 트레이에 차려진 서로 다른 한 끼">
+          </div>
+          <span class="card__no">② 돌아보기</span>
+          <h3 class="card__title">끼니 돌아보기</h3>
+          <p class="card__desc">판단하지 않고 <strong>보여주기만</strong> 해요. 남과 비교하지 않고, 과거의 나와만 비교해요.</p>
+          <ul class="card__list">
+            <li>이번 달 끼니 구성</li>
+            <li>반복 메뉴 TOP 3</li>
+            <li><strong>놓친 재료 TOP 3</strong> — ③으로 가는 다리</li>
+          </ul>
+        </li>
+        <li class="card card--hero reveal" data-d="3" style="--tint:var(--c-peach)">
+          <div class="card__art">
+            <img src="img/feature-3.webp" width="1408" height="768" loading="lazy" decoding="async"
+                 alt="남은 재료와 그 재료로 끓인 찌개 한 상">
+          </div>
+          <span class="card__no">③ 차리기</span>
+          <h3 class="card__title">냉장고 구조대</h3>
+          <p class="card__desc">남은 재료로 <strong>다음 끼니</strong>를 해결해요. 부족한 것만 담기고, 다음엔 덜 사게 돼요.</p>
+          <ul class="card__list">
+            <li>지금 남은 재료 → 만들 수 있는 메뉴</li>
+            <li>부족한 재료만 장바구니에</li>
+            <li>자주 놓치는 재료는 분량을 줄여 추천</li>
+          </ul>
+        </li>
+      </ol>
+
+      <figure class="cycle reveal">
+        <div class="cycle__row">
+          <span class="cycle__node">끼니를 담는다</span>
+          <span class="cycle__arrow" aria-hidden="true">→</span>
+          <span class="cycle__node">놓친 재료를 안다</span>
+          <span class="cycle__arrow" aria-hidden="true">→</span>
+          <span class="cycle__node">남은 걸 쓰고, 덜 산다</span>
+          <span class="cycle__arrow" aria-hidden="true">→</span>
+          <span class="cycle__node cycle__node--win">살린 재료가 쌓인다</span>
+        </div>
+        <figcaption>먹으면 다시 기록으로 — 고리가 닫혀요.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ══════════ 5. 왜 소담인가 ══════════ -->
+  <section id="why" class="sec sec--sage">
+    <div class="wrap">
+      <p class="eyebrow reveal">왜 소담인가</p>
+      <h2 class="sec__title reveal">혼자 살면, 아무도 안 말린다</h2>
+
+      <ol class="why">
+        <li class="why__item reveal" data-d="1">
+          <span class="why__n">01</span>
+          <h3>묻는 사람이 없어요</h3>
+          <p>새벽 2시에 라면을 먹어도 아무도 보지 않고, 끼니를 거르면 아무도 묻지 않아요.
+             무너지는 건 의지가 약해서가 아니라 <strong>말려주는 사람이 없어서</strong>예요.</p>
+          <p class="why__stat">1인가구 <strong>824만 4천 가구</strong> · 전체 가구의 36.6%로 역대 최대</p>
+        </li>
+        <li class="why__item reveal" data-d="2">
+          <span class="why__n">02</span>
+          <h3>끼니는 분량에서 먼저 실패해요</h3>
+          <p>재료를 사면 1인분이 안 나와서 반이 남고, 냉장고에서 썩고, "사면 버리네" 하고 다시 배달을 시켜요.</p>
+          <ol class="miniloop">
+            <li>재료를 산다</li>
+            <li>반이 남는다</li>
+            <li>썩는다</li>
+            <li class="miniloop__bad">다시 배달</li>
+          </ol>
+        </li>
+        <li class="why__item reveal" data-d="3">
+          <span class="why__n">03</span>
+          <h3>그래서 소담이 같이 살아요</h3>
+          <p>평가하지 않고, 남은 재료로 다음 끼니를 같이 정해요.</p>
+          <figure class="why__photo">
+            <img src="img/room.webp" width="1408" height="768" loading="lazy" decoding="async"
+                 alt="좁은 원룸에서 인덕션으로 요리하는 사람, 앞쪽 식탁에는 차려둔 한 상">
+          </figure>
+        </li>
+      </ol>
+      <p class="src reveal">출처: 국가데이터처 「2025년 인구주택총조사」(2026년 7월 발표)</p>
+    </div>
+  </section>
+
+  <!-- ══════════ 6. 사용 방법 ══════════ -->
+  <section id="howto" class="sec">
+    <div class="wrap">
+      <p class="eyebrow reveal">사용 방법</p>
+      <h2 class="sec__title reveal">세 걸음이면 오늘 저녁이 정해져요</h2>
+      <p class="sec__lead reveal" data-d="1">앱을 켜고 끝낼 때까지, 하루에 15초면 충분해요.</p>
+
+      <ol class="steps">
+        <li class="step reveal" data-d="1">
+          <span class="step__n">01</span>
+          <div class="step__body">
+            <h3>먹은 걸 한 번 탭해요</h3>
+            <p>집밥·배달·외식·편의점·건너뜀 중에 하나. 사진을 찍어도 되고, 안 찍어도 돼요.</p>
+            <div class="step__demo" aria-hidden="true">
+              <span class="pill" style="background:var(--veg-1);color:#fff">집밥</span>
+              <span class="pill" style="background:var(--c-peach)">배달</span>
+              <span class="pill" style="background:var(--c-sky)">외식</span>
+              <span class="pill" style="background:var(--c-butter)">편의점</span>
+            </div>
+          </div>
+        </li>
+        <li class="step reveal" data-d="2">
+          <span class="step__n">02</span>
+          <div class="step__body">
+            <h3>소담이 놓친 재료를 짚어줘요</h3>
+            <p>주말마다 한 장. 이번 달 끼니가 어떻게 생겼는지, 어떤 재료를 못 쓰고 버렸는지 보여줘요.</p>
+            <div class="step__demo" aria-hidden="true">
+              <span class="pill" style="background:var(--c-sage)">애호박 3회</span>
+              <span class="pill" style="background:var(--c-sage)">대파 2회</span>
+              <span class="pill" style="background:var(--c-sage)">두부 1회</span>
+            </div>
+          </div>
+        </li>
+        <li class="step reveal" data-d="3">
+          <span class="step__n">03</span>
+          <div class="step__body">
+            <h3>남은 재료로 저녁을 차려요</h3>
+            <p>냉장고에 있는 걸 고르면 만들 수 있는 메뉴가 떠요. 부족한 재료만 1인분 분량으로 담기고요.</p>
+            <div class="step__demo" aria-hidden="true">
+              <span class="pill" style="background:var(--lime-300)">애호박전 · 15분</span>
+              <span class="pill" style="background:var(--c-cream)">부족: 양파</span>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══════════ 7. 데모 ══════════ -->
+  <section id="demo" class="sec sec--cream">
+    <div class="wrap">
+      <p class="eyebrow reveal">만져보기</p>
+      <h2 class="sec__title reveal">실제로 눌러보세요</h2>
+      <p class="sec__lead reveal" data-d="1">아래는 데모용 화면이에요. 표시되는 수치는 모두 <strong>가상 데이터</strong>입니다.</p>
+
+      <div class="demos">
+
+        <article class="panel panel--wide reveal" data-d="1">
+          <header class="panel__head">
+            <span class="panel__ico" style="background:var(--c-peach)" aria-hidden="true">🥘</span>
+            <div>
+              <h3 class="panel__title">냉장고 구조대</h3>
+              <p class="panel__sub">지금 남은 재료를 눌러보세요</p>
+            </div>
+          </header>
+          <div class="chips" id="fridgeChips"></div>
+          <div id="fridgeOut" class="recipes" aria-live="polite"></div>
+        </article>
+
+        <article class="panel reveal" data-d="2">
+          <header class="panel__head">
+            <span class="panel__ico" style="background:var(--c-sage)" aria-hidden="true">🥄</span>
+            <div>
+              <h3 class="panel__title">끼니 담기 · 이번 달 구성</h3>
+              <p class="panel__sub">눌러서 하루를 담아보세요</p>
+            </div>
+          </header>
+          <div class="tapper" id="mealTaps"></div>
+
+          <figure class="chart">
+            <div class="chart__bar" id="mealBar"></div>
+            <p id="mealBarDesc" class="sr" role="img"></p>
+            <ul class="legend" id="mealLegend"></ul>
+            <figcaption class="chart__cap">가상 데이터 · 전체 <span id="mealTotal">0</span>끼</figcaption>
+          </figure>
+
+          <div class="northstar">
+            <span class="northstar__label">이번 달 살린 재료</span>
+            <span class="northstar__num"><span id="savedNum">0</span>개</span>
+            <p class="northstar__note">체중도, 칼로리도 재지 않아요. 해낸 것만 세요.</p>
+          </div>
+        </article>
+
+        <article class="panel panel--rest reveal" data-d="3">
+          <header class="panel__head">
+            <span class="panel__ico" style="background:var(--c-sky)" aria-hidden="true">☁️</span>
+            <div>
+              <h3 class="panel__title">쉬어가는 날</h3>
+              <p class="panel__sub">편의점으로 때운 날에도 괜찮아요</p>
+            </div>
+          </header>
+          <p class="soday" id="sodayOut" role="status" aria-live="polite">버튼을 눌러보세요.</p>
+          <button class="btn btn--soft btn--block" type="button" id="sodayBtn">오늘은 쉬어가는 날</button>
+          <p class="panel__foot">소담은 '망했다'고 말하지 않아요. 실제로 망한 것이 없기 때문에요.</p>
+        </article>
+
+        <article class="panel reveal" data-d="4">
+          <header class="panel__head">
+            <span class="panel__ico" style="background:var(--c-butter)" aria-hidden="true">🔍</span>
+            <div>
+              <h3 class="panel__title">끼니 돌아보기 · 놓친 재료 TOP 3</h3>
+              <p class="panel__sub">지난 4주 동안 못 쓰고 버린 재료</p>
+            </div>
+          </header>
+          <figure class="chart">
+            <ul class="hbars" id="missBars"></ul>
+            <figcaption class="chart__cap">가상 데이터 · 단위: 회</figcaption>
+          </figure>
+          <p class="panel__foot">그래서 다음 장보기에는 <strong>애호박을 반 개만</strong> 담아요.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 8. 플랜 ══════════ -->
+  <section id="plans" class="sec">
+    <div class="wrap">
+      <p class="eyebrow reveal">플랜</p>
+      <h2 class="sec__title reveal">기록은 늘 무료예요</h2>
+      <p class="sec__lead reveal" data-d="1">기본 끼니 관리를 돈 받고 잠그지 않아요. 구독으로 파는 건 <strong>얼마나 깊이 봐주는가</strong>입니다.</p>
+
+      <ol class="plans">
+        <li class="plan reveal" data-d="1">
+          <p class="plan__persona">지금의 나</p>
+          <h3 class="plan__name">혼밥러</h3>
+          <p class="plan__price"><strong>무료</strong></p>
+          <ul class="plan__list">
+            <li>끼니 담기 (15초 기록)</li>
+            <li>끼니 돌아보기 기본</li>
+            <li>자동 피드백</li>
+            <li>구조대 피드 열람</li>
+          </ul>
+          <a class="btn btn--ghost btn--block" href="dashboard.html">무료로 시작</a>
+        </li>
+        <li class="plan plan--best reveal" data-d="2">
+          <p class="plan__badge">가장 많이 선택</p>
+          <p class="plan__persona">되어가는 나</p>
+          <h3 class="plan__name">자취장인</h3>
+          <p class="plan__price"><strong>월 5,900원</strong><small>가격 예시</small></p>
+          <ul class="plan__list">
+            <li>혼밥러 전체 포함</li>
+            <li><strong>냉장고 구조대 전체</strong></li>
+            <li>심층 분석 + 대책</li>
+            <li>주간 리포트 · 채팅 살핌</li>
+            <li><strong>웰컴 키트</strong> (1인분 계량 스푼 외)</li>
+          </ul>
+          <a class="btn btn--primary btn--block" href="dashboard.html">자취장인 시작</a>
+        </li>
+        <li class="plan reveal" data-d="3">
+          <p class="plan__persona">되고 싶은 나</p>
+          <h3 class="plan__name">프로 살림꾼</h3>
+          <p class="plan__price"><strong>월 9,900원</strong><small>가격 예시</small></p>
+          <ul class="plan__list">
+            <li>자취장인 전체 포함</li>
+            <li><strong>월 1회 영양사 비대면 살핌 15분</strong></li>
+            <li>1인분 소분 세트 혜택</li>
+          </ul>
+          <a class="btn btn--ghost btn--block" href="dashboard.html">프로 살림꾼 시작</a>
+        </li>
+      </ol>
+      <p class="plans__note reveal">식재료는 별도 결제예요. 구독자에게는 할인이 적용돼요.</p>
+
+      <div class="kit reveal">
+        <img src="img/kit.webp" width="1408" height="768" loading="lazy" decoding="async"
+             alt="원목 트레이 위의 소담 웰컴 키트 — 흰 그릇, 1인분 계량 스푼, 집게, 냉장고 소분 라벨 스티커">
+        <div class="kit__text">
+          <p class="kit__tag">자취장인 웰컴 키트</p>
+          <h3>1인분이 뭔지, 손에 쥐어드려요</h3>
+          <p>1인분 계량 스푼, 냉장고 소분 라벨 스티커, 재료 집게, 소담 그릇 하나.
+             대파 한 단이 아니라 ⅓단이 어느 정도인지 눈에 익으면, 버리는 재료가 줄어요.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ 9. 소담과 1인가구의 만남 ══════════ -->
+  <section class="voices">
+    <div class="wrap">
+      <p class="eyebrow reveal">후기</p>
+      <h2 class="sec__title reveal">소담과<br>1인가구의 만남</h2>
+      <p class="sec__lead reveal" data-d="1">사진에 마우스를 올리면 후기가 보여요. <strong>가상 서비스의 예시 후기</strong>입니다.</p>
+    </div>
+
+    <div class="voices__viewport">
+      <ul class="voices__track" id="voicesTrack"></ul>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════ 10. 푸터 ══════════ -->
+<footer class="foot">
+  <div class="wrap foot__grid">
+
+    <div class="foot__main">
+      <div class="foot__cta">
+        <h2>소담과 함께<br>오늘 저녁을 정해보세요</h2>
+        <a class="btn btn--dark" href="dashboard.html">시작하기</a>
+      </div>
+
+      <dl class="foot__info">
+        <div><dt>서비스명</dt><dd>소담 (Sodam) — 1인가구 끼니 트래커</dd></div>
+        <div><dt>운영</dt><dd>소담팀 (수업 과제 가상 팀)</dd></div>
+        <div><dt>기획·제작</dt><dd>마케팅 수업 프로젝트</dd></div>
+        <div><dt>문의</dt><dd>hello@sodam.example</dd></div>
+        <div><dt>대표번호</dt><dd>0000-0000 <span class="foot__fake">(가상 번호)</span></dd></div>
+        <div><dt>사업자번호</dt><dd>000-00-00000 <span class="foot__fake">(가상 번호)</span></dd></div>
+      </dl>
+
+      <p class="foot__copy">COPYRIGHT © 2026 SODAM. 수업 과제용 가상 서비스입니다.</p>
+    </div>
+
+    <aside class="foot__card">
+      <div class="foot__logo">
+        <svg viewBox="0 0 44 44" aria-hidden="true">
+          <circle cx="22" cy="22" r="21" fill="var(--lime-100)"/>
+          <g fill="none" stroke="var(--ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.5 12 L10 22"/><path d="M14.5 12 L19 22"/>
+            <path d="M33.5 12 H25.5 V22 H33.5"/>
+          </g>
+          <path d="M11 27 Q22 36 33 27" fill="none" stroke="var(--lime-600)" stroke-width="3.2" stroke-linecap="round"/>
+        </svg>
+        <span>소담</span>
+      </div>
+      <dl>
+        <dt>고객센터</dt>
+        <dd>0000-0000</dd>
+        <dt>운영시간</dt>
+        <dd>평일 오전 10시 ~ 오후 6시<br>(주말·공휴일 휴무)</dd>
+      </dl>
+      <p class="foot__slogan">혼자여도, 소담하게.</p>
+    </aside>
+  </div>
+
+  <div class="wrap foot__fine">
+    <p>소담이 제공하는 정보는 일반적인 생활 습관 참고용이며, 질병의 진단·치료·예방을 목적으로 하지 않습니다. 건강에 이상이 느껴지면 의료기관에 상담하세요.</p>
+    <p>본 페이지의 이미지는 생성형 AI로 제작되었습니다. 페이지 내 수치·후기·연락처는 전부 가상 데이터입니다.</p>
+    <p>통계 출처 — 국가데이터처 「2025년 인구주택총조사」(2026년 7월 발표), 「2025 통계로 보는 1인가구」(2024년 기준).</p>
+    <p class="foot__disc">본 서비스는 수업 과제로 제작된 가상의 서비스이며, 실제로 판매되거나 운영되지 않습니다.</p>
+  </div>
+</footer>
+
+<script src="js/app.js?v=15"></script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>소담 · 오늘의 끼니 — 대시보드</title>
+<meta name="description" content="소담 대시보드 초안 — 끼니 담기, 냉장고, 레시피, 캘린더, 리포트. (수업 과제용 가상 서비스)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="css/style.css?v=15">
+<link rel="stylesheet" href="css/dashboard.css?v=15">
+</head>
+<body class="dash-body">
+<a class="skip" href="#dashmain">본문으로 바로가기</a>
+
+<div class="dash">
+
+  <!-- ───── 좌측 레일 ───── -->
+  <nav class="rail" aria-label="대시보드 메뉴">
+    <a class="rail__logo" href="index.html" aria-label="소담 홈으로">
+      <svg viewBox="0 0 44 44" aria-hidden="true">
+        <circle cx="22" cy="22" r="21" fill="var(--lime-100)"/>
+        <g fill="none" stroke="var(--ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.5 12 L10 22"/><path d="M14.5 12 L19 22"/>
+          <path d="M33.5 12 H25.5 V22 H33.5"/>
+        </g>
+        <path d="M11 27 Q22 36 33 27" fill="none" stroke="var(--lime-600)" stroke-width="3.2" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <ul class="rail__list">
+      <li><button class="rail__item is-on" type="button" data-view="home"><span aria-hidden="true">🏠</span><span class="rail__label">홈</span></button></li>
+      <li><button class="rail__item" type="button" data-view="fridge"><span aria-hidden="true">🥬</span><span class="rail__label">냉장고</span></button></li>
+      <li><button class="rail__item" type="button" data-view="recipes"><span aria-hidden="true">📖</span><span class="rail__label">레시피</span></button></li>
+      <li><button class="rail__item" type="button" data-view="calendar"><span aria-hidden="true">📅</span><span class="rail__label">캘린더</span></button></li>
+      <li><button class="rail__item" type="button" data-view="report"><span aria-hidden="true">📊</span><span class="rail__label">리포트</span><span class="rail__lock" aria-hidden="true">🔒</span></button></li>
+    </ul>
+    <a class="rail__item rail__out" href="index.html"><span aria-hidden="true">←</span><span class="rail__label">나가기</span></a>
+  </nav>
+
+  <!-- ───── 본문 ───── -->
+  <main id="dashmain" class="dash__main">
+
+    <header class="dash__top">
+      <div>
+        <p class="dash__date" id="dashDate">—</p>
+        <h1 class="dash__hello" id="dashTitle">오늘도 한 끼, 소담하게</h1>
+      </div>
+      <div class="dash__who">
+        <span class="dash__plan">혼밥러 플랜</span>
+        <span class="dash__avatar" aria-hidden="true">🙂</span>
+      </div>
+    </header>
+
+    <p class="dash__demo-note">이 화면은 <strong>초안</strong>이며, 표시되는 수치는 전부 가상 데이터입니다.</p>
+
+    <!-- ════════ 홈 ════════ -->
+    <section class="view is-on" data-view="home">
+      <div class="dash__grid">
+        <div class="dash__col">
+
+          <section class="dcard dcard--today">
+            <header class="dcard__head">
+              <h2>오늘의 끼니 담기</h2>
+              <p>한 번 탭하면 끝. 칼로리는 묻지 않아요.</p>
+            </header>
+            <div class="slots" id="slots">
+              <article class="slot" data-slot="아침">
+                <h3>아침</h3><p class="slot__val">아직 안 담았어요</p><div class="slot__opts"></div>
+              </article>
+              <article class="slot" data-slot="점심">
+                <h3>점심</h3><p class="slot__val">아직 안 담았어요</p><div class="slot__opts"></div>
+              </article>
+              <article class="slot" data-slot="저녁">
+                <h3>저녁</h3><p class="slot__val">아직 안 담았어요</p><div class="slot__opts"></div>
+              </article>
+            </div>
+            <p class="dcard__foot" id="todayFoot" role="status" aria-live="polite">세 끼를 담으면 오늘 기록이 끝나요.</p>
+          </section>
+
+          <section class="dcard">
+            <header class="dcard__head">
+              <h2>오늘 뭐 먹지?</h2>
+              <p>냉장고에 있는 재료로 지금 만들 수 있는 메뉴</p>
+            </header>
+            <div class="drecipes" id="homeSuggest"></div>
+            <button class="btn btn--ghost btn--block" type="button" data-goto="fridge">냉장고 열어보기</button>
+          </section>
+
+        </div>
+
+        <aside class="dash__col">
+          <section class="dcard dcard--star">
+            <p class="dstar__label">이번 달 살린 재료</p>
+            <p class="dstar__num"><span id="dSaved">12</span><small>개</small></p>
+            <p class="dstar__note">체중도, 칼로리도 재지 않아요. 해낸 것만 세요.</p>
+          </section>
+
+          <section class="dcard">
+            <header class="dcard__head">
+              <h2>이번 달 끼니 구성</h2>
+              <p>전체 <span id="dTotal">0</span>끼</p>
+            </header>
+            <div class="chart__bar" id="dBar"></div>
+            <p id="dBarDesc" class="sr" role="img"></p>
+            <ul class="legend" id="dLegend"></ul>
+          </section>
+
+          <section class="dcard">
+            <header class="dcard__head">
+              <h2>놓친 재료 TOP 3</h2>
+              <p>지난 4주 동안 못 쓰고 버린 재료</p>
+            </header>
+            <ul class="hbars" id="dMiss"></ul>
+            <p class="dcard__foot">다음 장보기에는 <strong>애호박을 반 개만</strong> 담아요.</p>
+          </section>
+
+          <section class="dcard dcard--rest">
+            <p class="drest__out" id="dRestOut" role="status" aria-live="polite">오늘 좀 힘들었다면, 눌러보세요.</p>
+            <button class="btn btn--soft btn--block" type="button" id="dRestBtn">오늘은 쉬어가는 날</button>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ════════ 냉장고 ════════ -->
+    <section class="view" data-view="fridge" hidden>
+      <div class="dash__grid">
+        <div class="dash__col">
+
+          <section class="dcard">
+            <header class="dcard__head">
+              <h2>재료 추가</h2>
+              <p>장 본 걸 담아두면, 그걸로 만들 메뉴를 찾아드려요</p>
+            </header>
+
+            <form class="addbox" id="addForm">
+              <label class="sr" for="addInput">추가할 재료 이름</label>
+              <input class="addbox__input" id="addInput" type="text" placeholder="예: 애호박" autocomplete="off" list="pantryList">
+              <datalist id="pantryList"></datalist>
+              <button class="btn btn--primary" type="submit">담기</button>
+            </form>
+            <p class="addbox__msg" id="addMsg" role="status" aria-live="polite"></p>
+
+            <div class="quickadd" id="quickAdd"></div>
+          </section>
+
+          <section class="dcard">
+            <header class="dcard__head">
+              <h2>지금 냉장고에 있는 것 <span class="dcount" id="haveCount">0</span></h2>
+              <p>다 쓴 재료는 눌러서 빼주세요</p>
+            </header>
+            <ul class="haves" id="haveList"></ul>
+          </section>
+
+        </div>
+
+        <aside class="dash__col">
+          <section class="dcard dcard--star dcard--rescue">
+            <header class="dcard__head">
+              <h2>냉장고 구조대</h2>
+              <p>지금 재료로 만들 수 있는 메뉴</p>
+            </header>
+            <div class="drecipes" id="rescueOut" aria-live="polite"></div>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ════════ 레시피 ════════ -->
+    <section class="view" data-view="recipes" hidden>
+      <section class="dcard">
+        <header class="dcard__head">
+          <h2>자취 간단 레시피</h2>
+          <p>인덕션 1구, 냄비 하나로 만들 수 있는 것만 모았어요</p>
+        </header>
+
+        <div class="rtools">
+          <div class="rcats" id="recipeCats" role="tablist" aria-label="레시피 카테고리"></div>
+          <label class="sr" for="recipeSearch">레시피 검색</label>
+          <input class="rsearch" id="recipeSearch" type="search" placeholder="재료나 메뉴 이름으로 찾기" autocomplete="off">
+        </div>
+
+        <p class="rcount" id="recipeCount"></p>
+        <ul class="rgrid" id="recipeGrid"></ul>
+      </section>
+    </section>
+
+    <!-- ════════ 캘린더 ════════ -->
+    <section class="view" data-view="calendar" hidden>
+      <div class="dash__grid">
+        <div class="dash__col">
+          <section class="dcard">
+            <header class="dcard__head cal__head">
+              <div>
+                <h2 id="calTitle">—</h2>
+                <p>색이 진할수록 집밥 비중이 높은 날이에요</p>
+              </div>
+              <div class="cal__nav">
+                <button class="cal__btn" type="button" id="calPrev" aria-label="이전 달">←</button>
+                <button class="cal__btn" type="button" id="calNext" aria-label="다음 달">→</button>
+              </div>
+            </header>
+
+            <ol class="cal__dow" aria-hidden="true">
+              <li>일</li><li>월</li><li>화</li><li>수</li><li>목</li><li>금</li><li>토</li>
+            </ol>
+            <ol class="cal__grid" id="calGrid"></ol>
+
+            <ul class="cal__legend">
+              <li><span class="cal__key" data-lv="3"></span>잘 챙겨 먹은 날</li>
+              <li><span class="cal__key" data-lv="2"></span>보통</li>
+              <li><span class="cal__key" data-lv="1"></span>쉬어간 날</li>
+              <li><span class="cal__key" data-lv="0"></span>기록 없음</li>
+            </ul>
+          </section>
+        </div>
+
+        <aside class="dash__col">
+          <section class="dcard" id="calDetail">
+            <header class="dcard__head">
+              <h2>날짜를 눌러보세요</h2>
+              <p>그날 뭘 먹었는지 보여드려요</p>
+            </header>
+            <p class="dempty">아직 고른 날이 없어요.</p>
+          </section>
+
+          <section class="dcard dcard--star">
+            <p class="dstar__label">이번 달 기록한 날</p>
+            <p class="dstar__num"><span id="calStreak">0</span><small>일</small></p>
+            <p class="dstar__note">빠진 날이 있어도 괜찮아요. 이어서 담으면 돼요.</p>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ════════ 리포트 (잠금) ════════ -->
+    <section class="view" data-view="report" hidden>
+      <section class="dcard upsell">
+        <span class="upsell__lock" aria-hidden="true">🔒</span>
+        <p class="upsell__tag">자취장인 플랜</p>
+        <h2>리포트는 더 깊이 봐드릴 때 열려요</h2>
+        <p class="upsell__lead">
+          혼밥러 플랜은 <strong>담고 돌아보는 것</strong>까지예요.
+          플랜을 올리면 소담이 내 기록을 분석해서 <strong>왜 그런지</strong>와 <strong>그럼 뭘 하면 되는지</strong>까지 말해드려요.
+        </p>
+
+        <ul class="upsell__list">
+          <li>
+            <span class="upsell__ico" style="background:var(--c-sky)" aria-hidden="true">🔍</span>
+            <div><strong>패턴 분석</strong><span>늦게 먹은 날과 수면, 배달이 몰리는 요일, 반복되는 메뉴를 짚어줘요.</span></div>
+          </li>
+          <li>
+            <span class="upsell__ico" style="background:var(--c-peach)" aria-hidden="true">🥘</span>
+            <div><strong>대안 식단 제시</strong><span>지금 냉장고와 이번 주 패턴에 맞춘 일주일 끼니를 짜드려요.</span></div>
+          </li>
+          <li>
+            <span class="upsell__ico" style="background:var(--c-butter)" aria-hidden="true">📈</span>
+            <div><strong>주간 리포트</strong><span>살린 재료, 집밥 비중, 놓친 재료의 변화를 한 장으로 받아봐요.</span></div>
+          </li>
+          <li>
+            <span class="upsell__ico" style="background:var(--c-sage)" aria-hidden="true">💬</span>
+            <div><strong>채팅 살핌</strong><span>"오늘 뭐 먹지"를 물어보면 내 기록을 알고 답해줘요.</span></div>
+          </li>
+        </ul>
+
+        <div class="upsell__cta">
+          <a class="btn btn--primary btn--lg" href="index.html#plans">플랜 업그레이드 <span aria-hidden="true">→</span></a>
+          <span class="upsell__price">자취장인 월 5,900원 <small>(가격 예시)</small></span>
+        </div>
+
+        <figure class="upsell__peek" aria-hidden="true">
+          <figcaption>미리보기</figcaption>
+          <div class="peek">
+            <p class="peek__line"><strong>늦게 먹은 날</strong>엔 수면이 평균보다 짧았어요</p>
+            <p class="peek__line"><strong>수요일</strong>에 배달이 가장 많아요</p>
+            <p class="peek__line"><strong>애호박</strong>을 3번 놓쳤어요 — 다음엔 반 개만</p>
+            <span class="peek__blur"></span>
+          </div>
+        </figure>
+      </section>
+    </section>
+
+    <footer class="dash__foot">
+      <p>본 서비스는 수업 과제로 제작된 가상의 서비스이며, 실제로 판매되거나 운영되지 않습니다. 화면의 수치는 전부 가상 데이터입니다.</p>
+    </footer>
+
+  </main>
+</div>
+
+<script src="js/data.js?v=15"></script>
+<script src="js/dashboard.js?v=15"></script>
+</body>
+</html>
