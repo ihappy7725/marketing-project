@@ -164,21 +164,8 @@
     var out = $('#fridgeOut');
     if (!host || !out) return;
 
-    var PANTRY = ['대파', '애호박', '두부', '계란', '양파', '감자', '당근', '김치', '참치캔'];
-    var RECIPES = [
-      { name: '애호박 계란볶음',  needs: ['애호박', '계란', '양파'],         min: 10 },
-      { name: '대파 계란국',      needs: ['대파', '계란'],                   min: 10 },
-      { name: '두부 김치찌개',    needs: ['두부', '김치', '대파', '양파'],   min: 20 },
-      { name: '감자 조림',        needs: ['감자', '양파', '대파'],           min: 20 },
-      { name: '참치 김치볶음밥',  needs: ['김치', '참치캔', '대파', '계란'], min: 15 },
-      { name: '두부 부침',        needs: ['두부', '대파'],                   min: 10 },
-      { name: '당근 라페',        needs: ['당근'],                           min: 10 },
-      { name: '애호박전',         needs: ['애호박', '계란'],                 min: 15 },
-      { name: '감자 계란 샐러드', needs: ['감자', '계란', '양파'],           min: 20 },
-      { name: '대파 두부 덮밥',   needs: ['두부', '대파', '계란', '양파'],   min: 15 },
-      { name: '김치 계란말이',    needs: ['김치', '계란', '대파'],           min: 15 },
-      { name: '야채 된장국',      needs: ['애호박', '두부', '양파', '대파'], min: 15 }
-    ];
+    var PANTRY = ['대파', '애호박', '두부', '계란', '양파', '감자', '당근', '김치', '참치캔',
+                  '콩나물', '시금치', '표고버섯', '가지', '소면', '밥', '라면'];
 
     function render() {
       var have = selectedOf(host);
@@ -188,17 +175,7 @@
         return;
       }
 
-      var matched = RECIPES.map(function (r) {
-        return {
-          r: r,
-          hit: r.needs.filter(function (n) { return have.indexOf(n) !== -1; }),
-          missing: r.needs.filter(function (n) { return have.indexOf(n) === -1; })
-        };
-      }).filter(function (m) { return m.hit.length > 0; })
-        .sort(function (a, b) {
-          if (b.hit.length !== a.hit.length) { return b.hit.length - a.hit.length; }
-          return a.missing.length - b.missing.length;
-        }).slice(0, 3);
+      var matched = sodamMatch(have, 3);
 
       if (!matched.length) {
         out.innerHTML = '<p class="recipes__empty">이 조합으로 만들 수 있는 메뉴가 데모 목록에 없어요. 다른 재료를 눌러보세요.</p>';

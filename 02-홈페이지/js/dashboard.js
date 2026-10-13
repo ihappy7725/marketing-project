@@ -294,9 +294,15 @@
     var that = new Date(y, m, d);
     if (that > today) { return null; }          // 미래는 기록 없음
     if (r < 18) { return { lv: 0, meals: [] }; } // 기록 안 한 날
-    var pool = ['집밥', '배달', '외식', '편의점'];
+    // 집밥에 가중치를 둬서 '잘 챙겨 먹은 날'이 고르게 나오도록
+    var pool = ['집밥', '집밥', '배달', '외식', '편의점'];
+    // 끼니마다 독립적으로 뽑아야 집밥이 2회 이상 나올 수 있다
+    function pick(i) {
+      var x = ((seed + 1) * 2654435761 + (i + 1) * 40503) >>> 0;
+      return pool[(x >>> 9) % pool.length];
+    }
     var meals = ['아침', '점심', '저녁'].map(function (slot, i) {
-      return { slot: slot, kind: pool[(r + i * 7) % 4] };
+      return { slot: slot, kind: pick(i) };
     });
     var home = meals.filter(function (x) { return x.kind === '집밥'; }).length;
     return { lv: home >= 2 ? 3 : (home === 1 ? 2 : 1), meals: meals };

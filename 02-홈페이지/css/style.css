@@ -184,8 +184,8 @@ a { color: var(--lime-700); }
 .hero__scrim {
   position: absolute; inset: 0;
   background: linear-gradient(to top,
-    rgba(16,22,16,.80) 0%, rgba(16,22,16,.56) 22%,
-    rgba(16,22,16,.22) 44%, rgba(16,22,16,0) 62%);
+    rgba(14,19,14,.90) 0%, rgba(14,19,14,.78) 18%,
+    rgba(14,19,14,.54) 38%, rgba(14,19,14,.20) 58%, rgba(14,19,14,0) 74%);
 }
 .hero__text {
   position: absolute; left: 0; right: 0; bottom: 0;
